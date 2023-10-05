@@ -96,10 +96,10 @@ void loop() {
    //Serial.println(thermocouple.readFahrenheit());
    //delay(50);
    
-   if (fTemp < 90.0){
+   if (fTemp < 190.0){
    float val = (exp(sin(millis()/2000.0 * PI)) - 0.368) * 108.0;
   ledcWrite(ledChannel, val);  
-   } else if (fTemp >= 90) {
+   } else if (fTemp >= 190) {
      ledcWrite(ledChannel, 250);
    }
      /*
@@ -111,7 +111,7 @@ ledcWrite(ledChannel, 0);
 delay(tDelay);
    }
  */  
-if( millis() - fTime > 1000 * 1 * 60 ){
+if( millis() - fTime > 1000 * 12 * 60 ){
   //Serial.println("Going to sleep now");
   esp_deep_sleep_start();
 }
